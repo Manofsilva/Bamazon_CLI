@@ -26,10 +26,35 @@ var displayProducts = function(){
         if (err) throw err;
 
      for (var i = 0; i < res.length; i ++) {
-         console.table("Product ID: " + res[i].item_id + " || Product Name: " +
+         console.log("Product ID: " + res[i].item_id + " || Product Name: " +
          res[i].product_name + " || Price: " + res[i].price);
-     
-         
      }   
-    })
+     // Requests product and number of product items user wishes to purchase.
+  		requestProduct();
+    });
+};
+
+// Function for the requests  of product and number of product items user wishes to purchase.
+var requestProduct = function() {
+    inquirer.prompt([{
+        name: "productID",
+        type: "input",
+        message: "Please enter the product ID for the product you would like to purchase",
+        validate: function(value) {
+            if (isNaN(value) === false) {
+                return true;
+            }
+            return false;
+        }
+    },{
+        name: "productUnits",
+        type: "input",
+        message: "How many units do you want to buy?",
+        validate: function(value) {
+            if (isNaN(value) === false) {
+                return true;
+            }
+            return false;
+        }
+    }]).then
 }
