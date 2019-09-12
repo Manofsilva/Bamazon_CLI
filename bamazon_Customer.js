@@ -49,12 +49,25 @@ var requestProduct = function() {
     },{
         name: "productUnits",
         type: "input",
-        message: "How many units do you want to buy?",
+        message: "How many units would you like to buy?",
         validate: function(value) {
             if (isNaN(value) === false) {
                 return true;
             }
             return false;
         }
-    }]).then
+        // then return a promise
+    }]).then(function(answer) {
+        // Queries database for selected product.
+        var query = "SELECT stock_quantity, price, product_name, department_name FROM products WHERE ?";
+        connection.query(query, { item_id: answer.productID}, function(err, res) {
+
+            if (err) throw err;
+
+            var available_stock = res[0].stock_quantity;
+            var price_per_unit = res[0].price;
+            var available_product = res[0].product_name;
+            var product_department = res[0].department_name;
+        }
+    })
 }
