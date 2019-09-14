@@ -65,13 +65,13 @@ var requestProduct = function() {
 
             if (err) throw err;
 
-            var available_stock = res[0].stock_quantity;
+            available_stock = res[0].stock_quantity;
             console.log("available_stock", available_stock);
-            var price_per_unit = res[0].price;
+            price_per_unit = res[0].price;
             console.log("price", price_per_unit);
-            var available_product = res[0].product_name;
+            available_product = res[0].product_name;
             console.log("product", available_product);
-            var product_department = res[0].department_name;
+            product_department = res[0].department_name;
             console.log("depart", product_department);
 
             // Checks there's enough inventory  to process user's request.
@@ -93,28 +93,40 @@ var requestProduct = function() {
     });
 };
 
+var available_stock;
+var price_per_unit;
+var available_product;
+var product_department;
+
 // completes user's request to purchase product
-var completePurchase = function() {
+var completePurchase = function(available_stock, price_per_unit, productUnits, productID) {
 
     // update stock quantity once purchase is complete.
-    var updatedStockQuantity = available_stock - answer.productUnits;
+    var updatedStockQuantity = available_stock - productUnits;
+
 
     // calculate total price for purchase based on unit price and number of units.
-    var totalPrice = price_per_unit * i_dont_know;
+    var totalPrice = price_per_unit * productUnits;
 
 // update stock quantity on the database based on user's purchase.
 var query = "UPDATE products SET ? Where ?";
     connection.query(query, [{
         stock_quantity: updatedStockQuantity,
         
-    }]), function(err, res) {
+    },{
+        item_id: productID
+    }
+], function(err, res) {
         
         if (err) throw err;
+        
         // tells user purchase is a success
         console.log("Yay, your purchase is complete.");
 
         // display the total price for that purchase.
-        console.log("You're payment has been received in the amount of: " + totalPrice);
-    }
+        console.log("Your payment has been received in the amount of: $" + totalPrice);
+
+        // displayProducts to sho updated table.
+        displayProducts();
+    })
 } 
-}
