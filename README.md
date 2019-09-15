@@ -24,5 +24,5 @@ To run this module in the terminal:
 
 DEMO
 
-*concert-this*
-![](demos/NodeBamazon_Customer.gif)
+*Bamazon_Customer Experience*
+![](demos/Node Bamazon_Customer.gif)
