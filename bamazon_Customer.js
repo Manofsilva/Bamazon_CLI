@@ -119,14 +119,14 @@ var query = "UPDATE products SET ? Where ?";
 ], function(err, res) {
         
         if (err) throw err;
-        
+
         // tells user purchase is a success
         console.log("Yay, your purchase is complete.");
 
         // display the total price for that purchase.
         console.log("Your payment has been received in the amount of: $" + totalPrice);
 
-        // displayProducts to sho updated table.
+        // displayProducts to show updated table.
         displayProducts();
     })
 } 
