@@ -25,4 +25,4 @@ To run this module in the terminal:
 DEMO
 
 *Bamazon_Customer Experience*
-![](demos/Node Bamazon_Customer.gif)
+![](demos/Bamazon_Customer.gif)
