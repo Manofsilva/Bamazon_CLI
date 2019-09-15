@@ -20,4 +20,4 @@ The customer module also updates to the total sales for a department, based on t
 
 To run this module in the terminal:
 
-node bamazonCustomer.js
+```node bamazonCustomer.js```
