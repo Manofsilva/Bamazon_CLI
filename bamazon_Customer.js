@@ -65,6 +65,8 @@ var requestProduct = function() {
 
             if (err) throw err;
 
+            console.log("\n=================");
+
             available_stock = res[0].stock_quantity;
             console.log("available_stock", available_stock);
             price_per_unit = res[0].price;
@@ -73,6 +75,7 @@ var requestProduct = function() {
             console.log("product", available_product);
             product_department = res[0].department_name;
             console.log("depart", product_department);
+            console.log("\n=================");
 
             // Checks there's enough inventory  to process user's request.
             if (available_stock >= answer.productUnits) {
@@ -121,10 +124,16 @@ var query = "UPDATE products SET ? Where ?";
         if (err) throw err;
 
         // tells user purchase is a success
+        console.log("\n=================");
         console.log("Yay, your purchase is complete.");
+        console.log("\n=================");
 
         // display the total price for that purchase.
+        console.log("\n=================");
         console.log("Your payment has been received in the amount of: $" + totalPrice);
+        console.log("\n=================");
+        
+
 
         // displayProducts to show updated table.
         displayProducts();
