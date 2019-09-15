@@ -11,7 +11,7 @@ They are all dependencies in the package.json, so just run:
 
 ```npm install```
 
-Customer Module
+# Customer Module
 The customer module lets users select a product to purchase, enter the number of items they wish to purchase, and then complete the purchase.
 
 The complete purchase process shows how much the total cost is (based on number of items).
