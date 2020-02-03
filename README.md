@@ -1,13 +1,15 @@
 # Bamazon_CLI
 
-This is bamazon. Bamazon, as it's name suggests, is a simple e-commerce app, or at least the backend for it. 
+- This is bamazon. Bamazon, as it's name suggests, is a simple e-commerce app, or at least the backend for it. 
 
-Bamazon uses some third-party node modules, has it's own modules, and connects to a mysql database to store and retrieve product and department information.
+- Bamazon uses some third-party node modules, has it's own modules, and connects to a mysql database to store and retrieve product and department information.
 
-Third-party Node Modules
+- The app takes in orders from customers and deplete stock from the store's inventory.
+
+- Third-party Node Modules
 Bamazon uses these node modules: ```console.table```, ```inquirer```, ```mysql```.
 
-They are all dependencies in the package.json, so just run:
+- They are all dependencies in the package.json, so just run:
 
 ```npm install```
 
